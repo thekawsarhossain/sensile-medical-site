@@ -3,10 +3,11 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     textColor: {
-      'primary': '#3490dc',
-      'secondary': '#ffed4a',
+      'light': '#f5f6fa',
+      'primary': '#0984e3',
+      'secondary': '#2d3436',
+      'purple': '#40407a',
       'danger': '#e3342f',
-      'custom': 'goldenrod'
     },
 
     extend: {},
