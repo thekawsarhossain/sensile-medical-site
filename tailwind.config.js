@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     textColor: {
       'light': '#f5f6fa',
-      'primary': '#0984e3',
+      'primary': '#009FE3',
       'secondary': '#2d3436',
       'purple': '#40407a',
       'danger': '#e3342f',

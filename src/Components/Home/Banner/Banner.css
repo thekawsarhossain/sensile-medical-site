@@ -1,0 +1,4 @@
+.banner-container{
+    background: url(../../../images/banner.webp) no-repeat fixed center;
+    background-size: cover;
+}

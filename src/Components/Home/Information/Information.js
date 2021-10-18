@@ -5,13 +5,13 @@ import './Information.css';
 
 const Information = () => {
     return (
-        <div className="py-5">
+        <div className="py-8">
             <div className="container w-11/12 mx-auto text-left grid lg:grid-cols-2 md-:grid-cols-1 gap-5">
                 {/* opening hours part */}
                 <div className="parent-div">
                     <h4 className="title text-2xl font-semibold	text-secondary">Opening Hours</h4>
                     {/* information table here */}
-                    <table class="table-auto">
+                    <table class="table-auto font-semibold">
                         <tbody>
                             <tr>
                                 <td className="lg:w-4/5">Monday - Thursday</td>
