@@ -1,11 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import { useState } from 'react/cjs/react.development';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
 
-    const { signInWithGoogle, signInWithGitHub, signInWithInput, error, setError } = useAuth();
+    const { signInWithGoogle, signInWithGitHub, signInWithInput, error, setError, setUser } = useAuth();
+
+    const histroy = useHistory();
+    const location = useLocation();
+    const redirectUrl = (location.state?.from) || '/home'
+    console.log(redirectUrl)
 
     // states here 
     const [email, setEmail] = useState('');
@@ -28,6 +33,26 @@ const Login = () => {
     const handleSubmit = event => {
         event.preventDefault();
         signInWithInput(email, password)
+    }
+
+    // signin with google 
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                setError('');
+                histroy.push(redirectUrl)
+            })
+            .catch(error => setError(error.message))
+    }
+
+    // sign in with gitghub
+    const handleGitHubSignIn = () => {
+        signInWithGitHub()
+            .then(result => {
+                setError('');
+                histroy.push(redirectUrl)
+            })
+            .catch(error => setError(error.message))
     }
 
     return (
@@ -53,9 +78,9 @@ const Login = () => {
                 <div className="container w-11/12 mx-auto py-0">
                     <p className="text-semibold text-gray">or signin with</p>
                     <div className="py-4">
-                        <button onClick={signInWithGoogle} className="bg-blue py-2 px-6 font-semibold rounded-md hover:bg-blue-500">Google</button>
+                        <button onClick={handleGoogleSignIn} className="bg-blue py-2 px-6 font-semibold rounded-md hover:bg-blue-500">Google</button>
 
-                        <button onClick={signInWithGitHub} className="bg-blue py-2 px-6 font-semibold rounded-md hover:bg-blue-500 mx-2">GitHub</button>
+                        <button onClick={handleGitHubSignIn} className="bg-blue py-2 px-6 font-semibold rounded-md hover:bg-blue-500 mx-2">GitHub</button>
                     </div>
                 </div>
                 <p className="pt-1">New user ? <span className="underline text-primary"><Link to="/signup">Signup</Link></span></p>

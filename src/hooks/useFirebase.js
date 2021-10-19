@@ -16,22 +16,13 @@ const useFirebase = () => {
 
     // signin with google here
     const signInWithGoogle = () => {
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                setUser(result.user)
-                setError('');
-            })
-            .catch(error => setError(error.message))
+        return signInWithPopup(auth, googleProvider)
     }
 
     // signin with github here 
     const signInWithGitHub = () => {
-        signInWithPopup(auth, gitHubAuthProvider)
-            .then(result => {
-                setUser(result.user)
-                setError('');
-            })
-            .catch(error => setError(error.message))
+        return signInWithPopup(auth, gitHubAuthProvider)
+
     }
 
     // sign in With Email And Password 
@@ -78,7 +69,8 @@ const useFirebase = () => {
         signUpWithInput,
         signInWithInput,
         signOutUser,
-        setError
+        setError,
+        setUser
     }
 }
 

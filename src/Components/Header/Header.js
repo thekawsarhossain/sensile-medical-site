@@ -53,7 +53,6 @@ const Header = () => {
                                         <nav className="nav-bar h-16">
                                             <li><NavLink to="/home">home</NavLink></li>
                                             <li><NavLink to="/services">Services</NavLink></li>
-                                            <li><NavLink to="/doctors">Doctors</NavLink></li>
                                             <li><NavLink to="/appoinment">Appoinment</NavLink></li>
                                             <li><NavLink to="/about">About</NavLink></li>
                                         </nav>
@@ -101,7 +100,6 @@ const Header = () => {
                             <nav className="navbar-responsive">
                                 <li><NavLink to="/home">home</NavLink></li>
                                 <li><NavLink to="/services">Services</NavLink></li>
-                                <li><NavLink to="/doctors">Doctors</NavLink></li>
                                 <li><NavLink to="/appoinment">Appoinment</NavLink></li>
                                 <li><NavLink to="/about">About</NavLink></li>
                             </nav>

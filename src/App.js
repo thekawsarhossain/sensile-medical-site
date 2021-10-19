@@ -8,6 +8,10 @@ import ServiceInfo from './Components/Home/Services/ServiceInfo/ServiceInfo';
 import AuthProvider from './Context/AuthProvider';
 import NotFound from './Components/NotFound/NotFound'
 import Footer from './Components/Footer/Footer';
+import About from './Components/About/About';
+import Services from './Components/Home/Services/Services';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Appoinment from './Components/Appoinment/Appoinment';
 
 function App() {
   return (
@@ -29,8 +33,17 @@ function App() {
             <Route path="/signup">
               <Signup></Signup>
             </Route>
-            <Route path="/service/:serviceId">
+            <PrivateRoute path="/service/:serviceId">
               <ServiceInfo></ServiceInfo>
+            </PrivateRoute>
+            <Route path="/services">
+              <Services></Services>
+            </Route>
+            <PrivateRoute path="/appoinment">
+              <Appoinment></Appoinment>
+            </PrivateRoute>
+            <Route path="/about">
+              <About></About>
             </Route>
             <Route path="*">
               <NotFound></NotFound>
