@@ -10,7 +10,6 @@ const Login = () => {
     const histroy = useHistory();
     const location = useLocation();
     const redirectUrl = (location.state?.from) || '/home'
-    console.log(redirectUrl)
 
     // states here 
     const [email, setEmail] = useState('');
@@ -31,8 +30,13 @@ const Login = () => {
 
     // form submit here 
     const handleSubmit = event => {
-        event.preventDefault();
         signInWithInput(email, password)
+            .then(result => {
+                setUser(result.user)
+                setError('');
+                histroy.push(redirectUrl);
+            })
+            .catch(error => setError(error.message))
     }
 
     // signin with google 
@@ -61,13 +65,13 @@ const Login = () => {
                 <h2 className="text-2xl title font-semibold">Please Login Here !</h2>
 
                 {/* sign in with from here  */}
-                <form onSubmit={handleSubmit} className="py-4 flex flex-col justify-center items-center">
+                <div className="py-4 flex flex-col justify-center items-center">
                     <input onBlur={handleEmail} className="border p-2 lg:w-3/5 my-2" type="email" placeholder="Enter your email" required />
                     <input onBlur={handlePassword} className="border p-2 lg:w-3/5 my-2" type="password" placeholder="Enter your password" required />
 
                     {/* submit button */}
-                    <input className="bg-gray text-light lg:w-3/5 py-2 px-6 font-semibold my-2" type="button" value="Submit" />
-                </form>
+                    <button onClick={handleSubmit} className="bg-gray text-light lg:w-3/5 py-2 px-6 font-semibold" type="button">Submit</button>
+                </div>
 
                 {/* shoe error  */}
                 <p className="text-danger">{error}</p>

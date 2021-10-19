@@ -4,13 +4,13 @@ import logo from '../../images/logo-2.png';
 
 const Footer = () => {
     return (
-        <div className="bg-gray mt-8">
+        <div className="bg-gray mt-10">
             <div className="container  p-4 mx-auto text-left">
                 <div className="grid lg:grid-cols-3">
                     {/* about info footer */}
                     <div className="p-4">
                         <img className="w-2/6" src={logo} alt="" />
-                        <p className="text-light font-sm my-2">So, we Already told about us in the top on this page we are <span className="text-primary font-semibold">SENSILE MEDICAL</span> Team so if you want to read more about us just click this button below 1</p>
+                        <p className="text-light font-sm my-2">So, we Already told about us in the top on this page we are <span className="text-primary font-semibold">SENSILE MEDICAL</span> Team so if you want to read more about us just click this button below.</p>
                         <Link to="/about"><button className="bg-primary py-1 px-6 font-semibold rounded-md hover:bg-blue text-light">readmore</button></Link>
                     </div>
                     {/* contact area */}
@@ -42,6 +42,7 @@ const Footer = () => {
 
                 </div>
             </div>
+            <p className="text-light">&copy; all rights are reserved by <span className="text-primary font-semibold">SENSILE MEDICAL</span> </p>
         </div>
     );
 };

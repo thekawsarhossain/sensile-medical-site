@@ -8,7 +8,7 @@ const Services = () => {
     const [services] = useServices();
 
     return (
-        <div className="services-container pt-16">
+        <div className="services-container pt-12">
             <div className="container w-11/12 py-10 mx-auto text-left">
                 <h2 className="text-5xl font-bold text-light service-title inline"> Services </h2>
                 <div className="grid lg:grid-cols-3 pt-6">

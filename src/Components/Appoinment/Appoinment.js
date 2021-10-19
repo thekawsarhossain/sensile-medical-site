@@ -28,6 +28,7 @@ const Appoinment = () => {
                         </select>
                         <input className="border p-2 w-3/5 my-2" type="text" placeholder="Enter Name" />
                         <input className="border p-2 w-3/5 my-2" type="number" placeholder="Enter Number" />
+                        <button className="bg-gray text-light lg:w-3/5 my-2 py-2 px-6 font-semibold" type="button">Book</button>
                     </div>
                     <img className="w-full p-4 rounded-lg" src={appoinment} alt="" />
                 </div>

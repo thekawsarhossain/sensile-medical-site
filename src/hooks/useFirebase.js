@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, GithubAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, GithubAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, signOut } from "firebase/auth";
 import initializeAuthentication from "../Firebase/firebase.init"
 
 initializeAuthentication();
@@ -27,23 +27,28 @@ const useFirebase = () => {
 
     // sign in With Email And Password 
     const signInWithInput = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                setUser(result.user)
-                setError('');
-            })
-            .catch(error => setError(error.message))
+        return signInWithEmailAndPassword(auth, email, password)
+
     }
 
     // sign up with input here 
-    const signUpWithInput = (email, password) => {
+    const signUpWithInput = (email, password, name) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 setUser(result.user)
                 setError('')
+                console.log(result.user)
             })
             .catch(error => setError(error.message))
     }
+
+    //update the profile and set name
+    const setUserName = name => {
+        updateProfile(auth.currentUser, {
+            displayName: name,
+        }).then(() => { }).catch(error => setError(error.message))
+    }
+
 
     // getting the current user 
     useEffect(() => {
@@ -58,6 +63,7 @@ const useFirebase = () => {
     const signOutUser = () => {
         signOut(auth).then(() => { })
             .catch(error => setError(error.message))
+            .finally(window.location.reload())
     }
 
     // return here 
@@ -68,6 +74,7 @@ const useFirebase = () => {
         signInWithGitHub,
         signUpWithInput,
         signInWithInput,
+        setUserName,
         signOutUser,
         setError,
         setUser
