@@ -11,7 +11,7 @@ const Information = () => {
                 <div className="parent-div">
                     <h4 className="title text-2xl font-semibold	text-secondary">Opening Hours</h4>
                     {/* information table here */}
-                    <table class="table-auto font-semibold">
+                    <table className="table-auto font-semibold">
                         <tbody>
                             <tr>
                                 <td className="lg:w-4/5">Monday - Thursday</td>
@@ -36,7 +36,7 @@ const Information = () => {
                 {/* emergency part here */}
                 <div className="parent-div">
                     <h4 className=" title text-2xl font-semibold text-secondary">Emergency</h4>
-                    <div className="bg-blue-500 inline p-4 rounded text-light font-semibold mt-10">
+                    <div className="bg-primary inline p-4 rounded text-light font-semibold mt-10">
                         <FontAwesomeIcon icon={faPhone} /><a href="tel:+088 019">+088 0190000000</a>
                     </div>
                     <p className="pt-6 font-semibold italic ">We are always ready ! in your emergency . In this number you can call whenever you have in emergency.</p>

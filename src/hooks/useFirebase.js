@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, GithubAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import initializeAuthentication from "../Firebase/firebase.init"
 
 initializeAuthentication();
@@ -12,6 +12,7 @@ const useFirebase = () => {
     const auth = getAuth();
     // providers 
     const googleProvider = new GoogleAuthProvider();
+    const gitHubAuthProvider = new GithubAuthProvider();
 
     // signin with google here
     const signInWithGoogle = () => {
@@ -23,14 +24,41 @@ const useFirebase = () => {
             .catch(error => setError(error.message))
     }
 
+    // signin with github here 
+    const signInWithGitHub = () => {
+        signInWithPopup(auth, gitHubAuthProvider)
+            .then(result => {
+                setUser(result.user)
+                setError('');
+            })
+            .catch(error => setError(error.message))
+    }
+
+    // sign in With Email And Password 
+    const signInWithInput = (email, password) => {
+        signInWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                setUser(result.user)
+                setError('');
+            })
+            .catch(error => setError(error.message))
+    }
+
+    // sign up with input here 
+    const signUpWithInput = (email, password) => {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                setUser(result.user)
+                setError('')
+            })
+            .catch(error => setError(error.message))
+    }
+
     // getting the current user 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user)
-            }
-            else {
-                setError('some error occurred !');
             }
         })
     }, [])
@@ -46,7 +74,11 @@ const useFirebase = () => {
         user,
         error,
         signInWithGoogle,
-        signOutUser
+        signInWithGitHub,
+        signUpWithInput,
+        signInWithInput,
+        signOutUser,
+        setError
     }
 }
 

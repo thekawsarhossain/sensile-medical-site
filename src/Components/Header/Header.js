@@ -6,15 +6,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import logo from '../../images/logo-2.png';
 import './Header.css';
-import useFirebase from '../../hooks/useFirebase'
+import useAuth from '../../hooks/useAuth'
 
 
 const Header = () => {
 
-    const { user, signOutUser } = useFirebase();
+    const { user, signOutUser } = useAuth();
 
     return (
-        <Disclosure as="nav" className="bg-gray-800 fixed w-full">
+        <Disclosure as="nav" className="bg-gray fixed w-full z-10">
             {({ open }) => (
                 <>
                     <div className="text-light max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -76,8 +76,8 @@ const Header = () => {
                                     <div className="flex justify-between">
                                         {/* signin and login buttons here  */}
                                         {!user.email ? <div>
-                                            <Link to="/login"><button className="bg-blue-600 py-1 px-6 font-semibold rounded-md hover:bg-blue-500">Login</button></Link>
-                                            <Link to="/signup"><button className="bg-gray-600 py-1 px-6 font-semibold rounded-md mx-3 hover:bg-gray-500">Signup</button></Link>
+                                            <Link to="/login"><button className="bg-primary py-1 px-6 font-semibold rounded-md hover:bg-blue">Login</button></Link>
+                                            <Link to="/signup"><button className="bg-secondary py-1 px-6 font-semibold rounded-md mx-3 hover:bg-lightGray">Signup</button></Link>
                                         </div> :
                                             <div className="bg-gray-800 flex items-center text-sm rounded-full">
                                                 <p className="font-bold capitalize italic">{user.displayName}</p>

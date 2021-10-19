@@ -1,0 +1,14 @@
+.parent-div{
+    position: relative;
+    border: 2px solid #353b48;
+    border-radius: 20px;
+    padding: 35px;
+}
+.title{
+    position: absolute;
+    top: -24px;
+    left: -2px;
+    height: 40px;
+    padding-right: 16px;
+    background: #fff;
+}

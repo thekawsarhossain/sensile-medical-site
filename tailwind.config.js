@@ -9,6 +9,13 @@ module.exports = {
       'purple': '#40407a',
       'danger': '#e3342f',
     },
+    backgroundColor: {
+      'primary': '#009FE3',
+      'secondary': '#A6A5A6',
+      'gray': '#1F2937',
+      'blue': '#578BD4',
+      'lightGray': '#8395a7',
+    },
 
     extend: {},
   },

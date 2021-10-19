@@ -1,0 +1,16 @@
+.service-card{
+    margin: 10px;
+    background-color: lightgray;
+    overflow: hidden;
+    border-radius: 5px;
+}
+.service-card img{
+    border-radius: 5px;
+}
+.service-card:hover img{
+    width: 100%;
+    display: block;
+    transform: scale(1.1);
+    transition: all 0.5s;
+    border-radius: 5px;
+}

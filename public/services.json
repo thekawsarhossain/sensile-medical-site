@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "img": "https://i.ibb.co/LPr8FTJ/one.jpg",
+        "name": "Surgery",
+        "description": "This is the Surgery services that we provide since 20 years, and alhumdulillah we have no bad records! Surgery is a medical or dental specialty that uses operative manual and instrumental techniques on a person to investigate or treat a pathological condition such as a disease or injury, to help improve bodily function, appearance, or to repair unwanted ruptured areas."
+    },
+    {
+        "id": 2,
+        "img": "https://i.ibb.co/nwwYMDL/two.jpg",
+        "name": "Ophthalmology",
+        "description": "This is the Ophthalmology services, and we are well known by this service.Ophthalmology is a branch of medicine and surgery that deals with the diagnosis and treatment of disorders of the eye.[2] An ophthalmologist is a physician who specializes in ophthalmology."
+    },
+    {
+        "id": 3,
+        "img": "https://i.ibb.co/vq2ST0Y/three.jpg",
+        "name": "Dental Care",
+        "description": "This is the Dental Care service and that's also one the best service of our hospital. Dentistry, also known as dental medicine and oral medicine, is a branch of medicine that consists of the study, diagnosis, prevention, and treatment of diseases, disorders, and conditions of the oral. "
+    },
+    {
+        "id": 4,
+        "img": "https://i.ibb.co/bdKJHGX/four.jpg",
+        "name": "Neurology",
+        "description": "This is the Neurology service and we get a lot of patients who have benn suffering this problem .Neurology is a branch of medicine dealing with disorders of the nervous system. Neurology deals with the diagnosis and treatment of all categories of conditions and disease involving the central and peripheral nervous systems, including their coverings, blood vessels, and all effector tissue, such as muscle."
+    },
+    {
+        "id": 5,
+        "img": "https://i.ibb.co/VC0Q7PL/five.jpg",
+        "name": "Pregnancy",
+        "description": "This is the pregnancy service that we provide we have more than 7 surgerist expert. Pregnancy, also known as gestation, is the time during which one or more offspring develops inside a woman. A multiple pregnancy involves more than one offspring, such as with twins. Pregnancy usually occurs by sexual intercourse, but can also occur through assisted reproductive technology procedures. "
+    },
+    {
+        "id": 6,
+        "img": "https://i.ibb.co/1qc1y35/six.jpg",
+        "name": "Cardioology",
+        "description": "This is the Cardioology service, we have 3 best doctors of Cardioologist .Cardiology is a branch of medicine that deals with the disorders of the heart as well as some parts of the circulatory system. The field includes medical diagnosis and treatment of congenital heart defects, coronary artery disease, heart failure, valvular heart disease and electrophysiology."
+    }
+]
