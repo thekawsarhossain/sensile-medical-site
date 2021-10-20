@@ -1,10 +1,9 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Disclosure, Menu } from '@headlessui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import logo from '../../images/logo-2.png';
+import userImg from '../../images/user.png';
 import './Header.css';
 import useAuth from '../../hooks/useAuth'
 
@@ -14,7 +13,7 @@ const Header = () => {
     const { user, signOutUser } = useAuth();
 
     return (
-        <Disclosure as="nav" className="bg-gray fixed w-full z-10">
+        <Disclosure as="nav" className="bg-gray fixed w-full py-2 z-10">
             {({ open }) => (
                 <>
                     <div className="text-light max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -74,17 +73,19 @@ const Header = () => {
                                 <Menu as="div" className="ml-3 relative">
                                     <div className="flex justify-between">
                                         {/* signin and login buttons here  */}
-                                        {!user.email ? <div>
-                                            <Link to="/login"><button className="bg-primary py-1 px-6 font-semibold rounded-md hover:bg-blue">Login</button></Link>
-                                            <Link to="/signup"><button className="bg-secondary py-1 px-6 font-semibold rounded-md mx-3 hover:bg-lightGray">Signup</button></Link>
+                                        {!user.email ? <div className="auth-buttons">
+                                            <Link to="/login"><button className="bg-primary py-2 px-6 font-semibold rounded-md hover:bg-blue">Login</button></Link>
+                                            <Link to="/signup"><button className="bg-secondary py-2 px-6 font-semibold rounded-md mx-3 hover:bg-lightGray">Signup</button></Link>
                                         </div> :
                                             <div className="bg-gray-800 flex items-center text-sm rounded-full">
-                                                <p className="font-bold capitalize italic">{user.displayName}</p>
-                                                <img
-                                                    className="h-8 w-8 rounded-full mx-2"
-                                                    src={user.photoURL}
-                                                    alt=""
-                                                />
+                                                <div className="lg:flex items-center justify-end">
+                                                    <p className="font-bold capitalize italic">{user?.displayName ? user?.displayName : 'Anonymous'}</p>
+                                                    <img
+                                                        className="h-8 w-8 rounded-full lg:mx-2 mx-8"
+                                                        src={user.photoURL ? user.photoURL : userImg}
+                                                        alt=""
+                                                    />
+                                                </div>
                                                 <button className="ms-8 text-primary text-3xl" onClick={signOutUser}><FontAwesomeIcon icon={faSignOutAlt} /></button>
                                             </div>}
                                     </div>

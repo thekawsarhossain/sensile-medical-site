@@ -60,7 +60,7 @@ const Login = () => {
     }
 
     return (
-        <div className="container lg:w-3/5 p-4 mx-auto pt-24">
+        <div className="container lg:w-3/5 p-4 mx-auto pt-28">
             <div className="parent-div">
                 <h2 className="text-2xl title font-semibold">Please Login Here !</h2>
 

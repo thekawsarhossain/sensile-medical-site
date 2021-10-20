@@ -36,17 +36,16 @@ const useFirebase = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 setUser(result.user)
+                setUserName(name);
                 setError('')
-                console.log(result.user)
             })
             .catch(error => setError(error.message))
     }
 
-    //update the profile and set name
+    // user name update here 
     const setUserName = name => {
-        updateProfile(auth.currentUser, {
-            displayName: name,
-        }).then(() => { }).catch(error => setError(error.message))
+        updateProfile(auth.currentUser, { displayName: name })
+            .then(result => { })
     }
 
 
@@ -74,7 +73,6 @@ const useFirebase = () => {
         signInWithGitHub,
         signUpWithInput,
         signInWithInput,
-        setUserName,
         signOutUser,
         setError,
         setUser

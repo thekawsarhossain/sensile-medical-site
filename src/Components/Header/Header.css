@@ -17,10 +17,6 @@
     color: #fff;
 }
 
-
-.navbar-responsive{
-    
-}
 .navbar-responsive li{
     display: block;
     text-align: justify;
@@ -32,4 +28,15 @@
 .navbar-responsive li:hover{
     background: #333;
     color: #fff;
+}
+
+@media screen and (max-width:767px) {
+    .auth-buttons{
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+    }
+    .auth-buttons a{
+        margin: 5px 0;
+    }
 }

@@ -1,11 +1,10 @@
-import { findByDisplayValue } from '@testing-library/dom';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Signup = () => {
 
-    const { signInWithGoogle, signInWithGitHub, signUpWithInput, error, setUserName, setError } = useAuth();
+    const { signInWithGoogle, signInWithGitHub, signUpWithInput, error, setError } = useAuth();
 
     // states here 
     const [email, setEmail] = useState('');
@@ -43,12 +42,11 @@ const Signup = () => {
             return;
         }
 
-        signUpWithInput(email, password);
-        setUserName(name);
+        signUpWithInput(email, password, name);
     }
 
     return (
-        <div className="container lg:w-3/5 p-4 mx-auto pt-24">
+        <div className="container lg:w-3/5 p-4 mx-auto pt-28">
             <div className="parent-div">
                 <h2 className="text-2xl title font-semibold">Please Signup Here !</h2>
 

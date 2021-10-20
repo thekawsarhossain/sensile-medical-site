@@ -3,7 +3,7 @@ import appoinment from '../../images/appoinment.jpg';
 
 const Appoinment = () => {
     return (
-        <div className="container w-11/12 mx-auto pt-24">
+        <div className="container w-11/12 mx-auto pt-28">
             <div className="parent-div">
                 <h2 className="title text-2xl">Appoinment</h2>
                 <div className="grid lg:grid-cols-2">
