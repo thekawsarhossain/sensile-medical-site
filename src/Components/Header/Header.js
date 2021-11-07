@@ -75,6 +75,7 @@ const Header = () => {
                                         {/* signin and login buttons here  */}
                                         {!user.email ? <div className="auth-buttons">
                                             <Link to="/login"><button className="bg-primary lg:py-2 md:py-1 px-6 font-semibold rounded-md hover:bg-blue">Login</button></Link>
+
                                             <Link to="/signup"><button className="bg-secondary lg:py-2 md:py-1 px-6 font-semibold rounded-md mx-3 hover:bg-lightGray">Signup</button></Link>
                                         </div> :
                                             <div className="bg-gray-800 flex items-center text-sm rounded-full">

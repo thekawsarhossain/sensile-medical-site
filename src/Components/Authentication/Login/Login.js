@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
-import { useState } from 'react/cjs/react.development';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
