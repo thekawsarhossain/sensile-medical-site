@@ -8,8 +8,8 @@ const PrivateRoute = ({ children, ...rest }) => {
 
     // spinner here 
     if (isLoading) {
-        return <div className="h-screen flex items-center justify-items-center mx-auto">
-            <img src={loading} alt="" />
+        return <div className=" w-10/12 mx-auto">
+            <img className=" pt-36 block mx-auto" src={loading} alt="" />
         </div>
     }
 

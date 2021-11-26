@@ -33,12 +33,13 @@ const useFirebase = () => {
     }
 
     // sign up with input here 
-    const signUpWithInput = (email, password, name) => {
+    const signUpWithInput = (email, password, name, history) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 setUser(result.user)
                 setUserName(name);
                 setError('')
+                history.push('/');
             })
             .catch(error => setError(error.message))
     }

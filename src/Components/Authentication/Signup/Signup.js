@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Signup = () => {
+
+    const history = useHistory();
 
     const { signInWithGoogle, signInWithGitHub, signUpWithInput, error, setError } = useAuth();
 
@@ -42,7 +44,7 @@ const Signup = () => {
             return;
         }
 
-        signUpWithInput(email, password, name);
+        signUpWithInput(email, password, name, history);
     }
 
     return (
