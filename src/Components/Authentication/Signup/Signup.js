@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Signup = () => {
 
-    const history = useHistory();
+    const histroy = useHistory();
+    const location = useLocation();
+    const redirectUrl = (location.state?.from) || '/home'
 
     const { signInWithGoogle, signInWithGitHub, signUpWithInput, error, setError } = useAuth();
 
@@ -44,7 +46,27 @@ const Signup = () => {
             return;
         }
 
-        signUpWithInput(email, password, name, history);
+        signUpWithInput(email, password, name, histroy);
+    }
+
+    // signin with google 
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+            .then(result => {
+                setError('');
+                histroy.push(redirectUrl)
+            })
+            .catch(error => setError(error.message))
+    }
+
+    // sign in with gitghub
+    const handleGitHubSignIn = () => {
+        signInWithGitHub()
+            .then(result => {
+                setError('');
+                histroy.push(redirectUrl)
+            })
+            .catch(error => setError(error.message))
     }
 
     return (
@@ -72,9 +94,9 @@ const Signup = () => {
                 <div className="container w-11/12 mx-auto py-0">
                     <p className="text-semibold text-gray">or signin with</p>
                     <div className="py-4">
-                        <button onClick={signInWithGoogle} className="bg-blue py-2 px-6 font-semibold rounded-md hover:bg-blue-500">Google</button>
+                        <button onClick={() => handleGoogleSignIn()} className="bg-blue py-2 px-6 font-semibold rounded-md hover:bg-blue-500">Google</button>
 
-                        <button onClick={signInWithGitHub} className="bg-blue py-2 px-6 font-semibold rounded-md hover:bg-blue-500 mx-2">GitHub</button>
+                        <button onClick={() => handleGitHubSignIn()} className="bg-blue py-2 px-6 font-semibold rounded-md hover:bg-blue-500 mx-2">GitHub</button>
                     </div>
                 </div>
                 <p className="pt-1">Already registered ? <span className="underline text-primary"><Link to="/login">Login</Link></span></p>
